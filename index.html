@@ -1,300 +1,385 @@
+<!-- =========================================================
+TIX - TAXI IMPHAL XPLORE
+Premium European Taxi Website
+READY TO DEPLOY SINGLE HTML FILE
+Tech: HTML + CSS + JS
+========================================================= -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>BlueGo Taxi</title>
+
+<title>TIX - Taxi Imphal Xplore</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
 
 <style>
+
+:root{
+--lime:#c6ff00;
+--black:#050505;
+--gray:#141414;
+--white:#f7f7f7;
+--card:#111;
+}
 
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:'Inter',sans-serif;
+scroll-behavior:smooth;
+font-family:'Sora',sans-serif;
 }
 
 body{
-background:#0B0F14;
+background:var(--black);
 color:white;
 overflow-x:hidden;
 }
 
-/* APP CONTAINER */
-
-.app{
-max-width:430px;
-margin:auto;
-min-height:100vh;
-background:#111827;
-position:relative;
-overflow:hidden;
+a{
+text-decoration:none;
+color:white;
 }
 
-/* HEADER */
+section{
+padding:100px 8%;
+}
 
-.header{
-padding:25px 22px;
+h1,h2,h3{
+font-weight:700;
+}
+
+.btn{
+padding:14px 28px;
+border-radius:50px;
+background:var(--lime);
+color:black;
+font-weight:700;
+display:inline-block;
+transition:.4s;
+}
+
+.btn:hover{
+transform:translateY(-3px);
+box-shadow:0 0 30px var(--lime);
+}
+
+/* NAVBAR */
+
+nav{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+padding:20px 8%;
 display:flex;
 justify-content:space-between;
 align-items:center;
+background:rgba(0,0,0,0.75);
+backdrop-filter:blur(12px);
+z-index:999;
 }
 
 .logo{
 display:flex;
 align-items:center;
-gap:12px;
+gap:15px;
 }
 
 .logo img{
-width:48px;
-height:48px;
-object-fit:contain;
-border-radius:12px;
-background:white;
-padding:6px;
+width:60px;
+height:60px;
+border-radius:50%;
 }
 
-.logo-text h2{
-font-size:20px;
-font-weight:800;
+.logo h2{
+font-size:28px;
+color:var(--lime);
 }
 
-.logo-text p{
-font-size:12px;
-opacity:0.7;
-}
-
-.menu-btn{
-width:45px;
-height:45px;
-border-radius:14px;
-background:#1F2937;
+.nav-links{
 display:flex;
-align-items:center;
-justify-content:center;
-font-size:20px;
+gap:30px;
+}
+
+.nav-links a:hover{
+color:var(--lime);
 }
 
 /* HERO */
 
 .hero{
-padding:10px 22px 30px;
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:40px;
+background:
+linear-gradient(rgba(0,0,0,.75),rgba(0,0,0,.75)),
+url('https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?q=80&w=1600&auto=format&fit=crop')
+center/cover;
 }
 
-.hero h1{
-font-size:42px;
+.hero-content{
+max-width:650px;
+}
+
+.hero-content h1{
+font-size:72px;
 line-height:1.1;
-font-weight:800;
-margin-bottom:18px;
+margin-bottom:20px;
 }
 
-.hero h1 span{
-color:#00D48A;
+.hero-content h1 span{
+color:var(--lime);
 }
 
-.hero p{
-font-size:15px;
+.hero-content p{
+font-size:18px;
+color:#ddd;
+margin-bottom:35px;
 line-height:1.7;
-opacity:0.75;
-margin-bottom:28px;
 }
 
-/* BOOK CARD */
-
-.booking-card{
-background:white;
-border-radius:28px;
-padding:22px;
-color:black;
-box-shadow:0 10px 30px rgba(0,0,0,0.2);
+.hero-buttons{
+display:flex;
+gap:20px;
+flex-wrap:wrap;
 }
 
-.input-box{
-background:#F3F4F6;
-padding:18px;
-border-radius:18px;
-margin-bottom:14px;
+/* BOOKING */
+
+.booking{
+background:var(--gray);
+border-radius:30px;
+padding:40px;
+margin-top:-80px;
+position:relative;
+z-index:50;
+box-shadow:0 20px 60px rgba(0,0,0,.5);
 }
 
-.input-box label{
-font-size:12px;
-opacity:0.6;
-display:block;
-margin-bottom:6px;
+.booking h2{
+margin-bottom:25px;
 }
 
-.input-box input{
+.booking-form{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+}
+
+.booking-form input,
+.booking-form select{
+padding:16px;
 border:none;
-outline:none;
-background:none;
-font-size:16px;
-font-weight:600;
-width:100%;
-}
-
-.book-btn{
-width:100%;
-padding:18px;
-border:none;
-border-radius:18px;
-background:#00D48A;
+border-radius:12px;
+background:#222;
 color:white;
-font-size:17px;
-font-weight:700;
-margin-top:8px;
+outline:none;
+}
+
+.booking-form button{
+border:none;
 cursor:pointer;
 }
 
-/* TOURIST SECTION */
+/* FEATURES */
 
-.section{
-padding:35px 22px;
+.features-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:25px;
+margin-top:50px;
 }
 
-.section-title{
-display:flex;
-justify-content:space-between;
-align-items:center;
-margin-bottom:22px;
+.feature-card{
+background:#111;
+padding:35px;
+border-radius:25px;
+transition:.4s;
+border:1px solid #1f1f1f;
 }
 
-.section-title h2{
-font-size:24px;
-font-weight:800;
+.feature-card:hover{
+transform:translateY(-10px);
+border-color:var(--lime);
 }
 
-.section-title a{
-color:#00D48A;
-text-decoration:none;
-font-size:14px;
-}
-
-/* CARDS */
-
-.card-scroll{
-display:flex;
-gap:18px;
-overflow-x:auto;
-padding-bottom:10px;
-scrollbar-width:none;
-}
-
-.card-scroll::-webkit-scrollbar{
-display:none;
-}
-
-.place-card{
-min-width:240px;
-background:#1A2332;
-border-radius:26px;
-overflow:hidden;
-}
-
-.place-card img{
-width:100%;
-height:170px;
-object-fit:cover;
-}
-
-.place-info{
-padding:18px;
-}
-
-.place-info h3{
-font-size:20px;
-margin-bottom:6px;
-}
-
-.place-info p{
-font-size:13px;
-opacity:0.7;
-line-height:1.6;
+.feature-card i{
+font-size:42px;
+color:var(--lime);
+margin-bottom:20px;
 }
 
 /* FLEET */
 
-.fleet-card{
-background:#1A2332;
-border-radius:24px;
-padding:20px;
-margin-bottom:18px;
+.section-title{
+font-size:48px;
+margin-bottom:20px;
 }
 
-.fleet-card img{
+.section-title span{
+color:var(--lime);
+}
+
+.fleet-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:25px;
+margin-top:50px;
+}
+
+.car-card{
+background:#111;
+border-radius:25px;
+overflow:hidden;
+transition:.4s;
+}
+
+.car-card:hover{
+transform:translateY(-8px);
+}
+
+.car-card img{
 width:100%;
-height:180px;
+height:220px;
 object-fit:cover;
-border-radius:18px;
+}
+
+.car-content{
+padding:25px;
+}
+
+.tag{
+display:inline-block;
+padding:8px 16px;
+background:var(--lime);
+color:black;
+font-size:13px;
+border-radius:50px;
+font-weight:700;
 margin-bottom:15px;
 }
 
-.fleet-top{
-display:flex;
-justify-content:space-between;
-align-items:center;
+/* TOURIST */
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:25px;
+margin-top:50px;
+}
+
+.gallery-card{
+position:relative;
+height:380px;
+overflow:hidden;
+border-radius:25px;
+}
+
+.gallery-card img{
+width:100%;
+height:100%;
+object-fit:cover;
+transition:1s;
+}
+
+.gallery-card:hover img{
+transform:scale(1.15);
+}
+
+.overlay{
+position:absolute;
+bottom:0;
+left:0;
+width:100%;
+padding:30px;
+background:linear-gradient(transparent,rgba(0,0,0,.95));
+}
+
+.overlay h3{
+font-size:28px;
 margin-bottom:10px;
 }
 
-.fleet-top h3{
-font-size:22px;
+/* ADMIN */
+
+.admin{
+background:#111;
+border-radius:30px;
+padding:50px;
+margin-top:50px;
 }
 
-.price{
-color:#00D48A;
-font-weight:700;
+.admin-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+margin-top:40px;
 }
 
-/* BOTTOM NAV */
-
-.bottom-nav{
-position:sticky;
-bottom:0;
-background:#101826;
-padding:18px 10px;
-display:flex;
-justify-content:space-around;
-border-top:1px solid rgba(255,255,255,0.06);
+.admin-card{
+background:#1b1b1b;
+padding:35px;
+border-radius:20px;
 }
 
-.nav-item{
+/* FOOTER */
+
+footer{
+padding:50px 8%;
+background:#000;
 text-align:center;
-font-size:12px;
-opacity:0.7;
 }
 
-.nav-item.active{
-opacity:1;
-color:#00D48A;
+footer h2{
+color:var(--lime);
+margin-bottom:15px;
 }
 
-/* WHATSAPP FLOAT */
+/* WHATSAPP */
 
 .whatsapp{
 position:fixed;
-right:18px;
-bottom:90px;
-width:60px;
-height:60px;
-background:#25D366;
-border-radius:50%;
+right:25px;
+bottom:25px;
+width:70px;
+height:70px;
+background:#25d366;
 display:flex;
 align-items:center;
 justify-content:center;
-font-size:28px;
-color:white;
-box-shadow:0 10px 25px rgba(0,0,0,0.25);
+border-radius:50%;
+font-size:32px;
+z-index:999;
+box-shadow:0 0 25px rgba(37,211,102,.6);
 }
 
-/* RESPONSIVE */
+/* MOBILE */
 
-@media(max-width:480px){
+@media(max-width:900px){
 
-.hero h1{
-font-size:34px;
+.hero{
+flex-direction:column;
+justify-content:center;
+text-align:center;
+padding-top:120px;
+}
+
+.hero-content h1{
+font-size:48px;
+}
+
+.nav-links{
+display:none;
 }
 
 }
@@ -304,166 +389,359 @@ font-size:34px;
 
 <body>
 
-<div class="app">
+<!-- NAVBAR -->
 
-<!-- HEADER -->
-
-<div class="header">
+<nav>
 
 <div class="logo">
-
-<img src="images/logo.png">
-
-<div class="logo-text">
-<h2>BlueGo</h2>
-<p>Manipur Taxi</p>
+<img src="logo.png" alt="">
+<h2>TIX</h2>
 </div>
 
+<div class="nav-links">
+<a href="#">Home</a>
+<a href="#fleet">Fleet</a>
+<a href="#tourism">Tourism</a>
+<a href="#booking">Booking</a>
+<a href="#admin">Admin</a>
 </div>
 
-<div class="menu-btn">
-☰
-</div>
-
-</div>
+</nav>
 
 <!-- HERO -->
 
-<div class="hero">
+<section class="hero">
+
+<div class="hero-content">
 
 <h1>
-Ride Across <span>Manipur</span>
+Premium Taxi Service
+Across <span>Manipur</span>
 </h1>
 
 <p>
-Premium taxi booking service for tourists, airport pickup, local rides, and hill station trips.
+Luxury rides, airport pickups, tourist tours,
+corporate mobility and WhatsApp instant booking.
+Experience European premium taxi design with TIX.
 </p>
 
-<div class="booking-card">
+<div class="hero-buttons">
+<a href="#booking" class="btn">Book Ride</a>
 
-<div class="input-box">
-<label>Pickup Location</label>
-<input type="text" placeholder="Enter pickup">
-</div>
-
-<div class="input-box">
-<label>Destination</label>
-<input type="text" placeholder="Enter destination">
-</div>
-
-<button class="book-btn">
-Book Ride
-</button>
-
+<a href="https://wa.me/918794451106"
+class="btn">
+WhatsApp Booking
+</a>
 </div>
 
 </div>
 
-<!-- TOURIST -->
+</section>
 
-<div class="section">
+<!-- BOOKING -->
 
-<div class="section-title">
-<h2>Tourist Places</h2>
-<a href="#">See All</a>
-</div>
+<section id="booking">
 
-<div class="card-scroll">
+<div class="booking">
 
-<div class="place-card">
-<img src="images/loktak.jpg">
-<div class="place-info">
-<h3>Loktak Lake</h3>
-<p>Floating islands and beautiful landscapes.</p>
-</div>
-</div>
+<h2 class="section-title">
+Instant Ride <span>Booking</span>
+</h2>
 
-<div class="place-card">
-<img src="images/kangla.jpg">
-<div class="place-info">
-<h3>Kangla Fort</h3>
-<p>Historic and cultural destination in Imphal.</p>
-</div>
-</div>
+<form class="booking-form">
 
-<div class="place-card">
-<img src="images/ukhrul.jpg">
-<div class="place-info">
-<h3>Ukhrul Hills</h3>
-<p>Scenic mountain destination for tourists.</p>
-</div>
-</div>
+<input type="text" placeholder="Pickup Location">
+
+<input type="text" placeholder="Drop Location">
+
+<input type="date">
+
+<select>
+<option>Select Fleet</option>
+<option>Economy</option>
+<option>Standard</option>
+<option>SUV</option>
+<option>XUV / MPV</option>
+</select>
+
+<button class="btn">Book Now</button>
+
+</form>
 
 </div>
 
+</section>
+
+<!-- FEATURES -->
+
+<section>
+
+<h2 class="section-title">
+Why Choose <span>TIX</span>
+</h2>
+
+<div class="features-grid">
+
+<div class="feature-card">
+<i class="fa-solid fa-car"></i>
+<h3>Premium Fleet</h3>
+<p>Luxury cars with professional drivers.</p>
 </div>
+
+<div class="feature-card">
+<i class="fa-solid fa-location-dot"></i>
+<h3>Tourist Tours</h3>
+<p>Explore Manipur with custom tour packages.</p>
+</div>
+
+<div class="feature-card">
+<i class="fa-brands fa-whatsapp"></i>
+<h3>WhatsApp Booking</h3>
+<p>Instant ride booking through WhatsApp.</p>
+</div>
+
+<div class="feature-card">
+<i class="fa-solid fa-shield-halved"></i>
+<h3>Safe Journey</h3>
+<p>Secure rides with verified drivers.</p>
+</div>
+
+</div>
+
+</section>
 
 <!-- FLEET -->
 
-<div class="section">
+<section id="fleet">
 
-<div class="section-title">
-<h2>Our Fleet</h2>
-<a href="#">View More</a>
+<h2 class="section-title">
+Our Premium <span>Fleet</span>
+</h2>
+
+<div class="fleet-grid">
+
+<div class="car-card">
+<img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=1200&auto=format&fit=crop">
+<div class="car-content">
+<div class="tag">ECONOMY</div>
+<h3>Alto 800 • Kwid • Celerio</h3>
+</div>
 </div>
 
-<div class="fleet-card">
-
-<img src="images/taxi1.jpg">
-
-<div class="fleet-top">
-<h3>Sedan</h3>
-<div class="price">₹899/day</div>
+<div class="car-card">
+<img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=1200&auto=format&fit=crop">
+<div class="car-content">
+<div class="tag">STANDARD</div>
+<h3>Dzire • Ciaz • Baleno • Swift</h3>
+</div>
 </div>
 
-<p>Comfortable AC sedan for city rides and airport pickup.</p>
-
+<div class="car-card">
+<img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1200&auto=format&fit=crop">
+<div class="car-content">
+<div class="tag">SUV</div>
+<h3>Creta • Scorpio • Bolero</h3>
+</div>
 </div>
 
-<div class="fleet-card">
-
-<img src="images/taxi2.jpg">
-
-<div class="fleet-top">
-<h3>SUV</h3>
-<div class="price">₹1499/day</div>
+<div class="car-card">
+<img src="https://images.unsplash.com/photo-1550355291-bbee04a92027?q=80&w=1200&auto=format&fit=crop">
+<div class="car-content">
+<div class="tag">XUV / MPV</div>
+<h3>Innova • Harrier • Safari</h3>
 </div>
-
-<p>Best for tourist groups and hill station rides.</p>
-
-</div>
-
-</div>
-
-<!-- BOTTOM NAV -->
-
-<div class="bottom-nav">
-
-<div class="nav-item active">
-🏠<br>Home
-</div>
-
-<div class="nav-item">
-🚕<br>Rides
-</div>
-
-<div class="nav-item">
-📍<br>Trips
-</div>
-
-<div class="nav-item">
-👤<br>Profile
 </div>
 
 </div>
+
+</section>
+
+<!-- TOURISM -->
+
+<section id="tourism">
+
+<h2 class="section-title">
+Explore <span>Manipur</span>
+</h2>
+
+<div class="gallery">
+
+<div class="gallery-card">
+<img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1200&auto=format&fit=crop">
+<div class="overlay">
+<h3>Kangla Fort</h3>
+<p>Historic royal fortress of Manipur.</p>
+</div>
+</div>
+
+<div class="gallery-card">
+<img src="https://images.unsplash.com/photo-1519046904884-53103b34b206?q=80&w=1200&auto=format&fit=crop">
+<div class="overlay">
+<h3>Loktak Lake</h3>
+<p>Floating islands and scenic beauty.</p>
+</div>
+</div>
+
+<div class="gallery-card">
+<img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?q=80&w=1200&auto=format&fit=crop">
+<div class="overlay">
+<h3>Ukhrul</h3>
+<p>Mountain tourism destination.</p>
+</div>
+</div>
+
+<div class="gallery-card">
+<img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1200&auto=format&fit=crop">
+<div class="overlay">
+<h3>Khoupum</h3>
+<p>Natural lake and green valleys.</p>
+</div>
+</div>
+
+<div class="gallery-card">
+<img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop">
+<div class="overlay">
+<h3>Churachandpur</h3>
+<p>Beautiful hill district exploration.</p>
+</div>
+</div>
+
+<div class="gallery-card">
+<img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?q=80&w=1200&auto=format&fit=crop">
+<div class="overlay">
+<h3>Khongjom Memorial</h3>
+<p>Historical war memorial tourism.</p>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<!-- ADMIN -->
+
+<section id="admin">
+
+<h2 class="section-title">
+Admin <span>Dashboard</span>
+</h2>
+
+<div class="admin">
+
+<div class="admin-grid">
+
+<div class="admin-card">
+<h3>Total Bookings</h3>
+<h1>1,250</h1>
+</div>
+
+<div class="admin-card">
+<h3>Drivers</h3>
+<h1>85</h1>
+</div>
+
+<div class="admin-card">
+<h3>Revenue</h3>
+<h1>₹4.2L</h1>
+</div>
+
+<div class="admin-card">
+<h3>Tour Packages</h3>
+<h1>12</h1>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+<h2>TIX - Taxi Imphal Xplore</h2>
+
+<p>
+Premium Taxi & Tourism Service Across Manipur
+</p>
+
+<br>
+
+<p>
+© 2026 TIX. All Rights Reserved.
+</p>
+
+</footer>
 
 <!-- WHATSAPP -->
 
-<div class="whatsapp">
-☎
-</div>
+<a href="https://wa.me/918794451106"
+class="whatsapp">
 
-</div>
+<i class="fa-brands fa-whatsapp"></i>
+
+</a>
+
+<!-- JWT AUTH SAMPLE -->
+
+<script>
+
+// JWT LOGIN SAMPLE
+
+async function login(){
+
+const response = await fetch('/api/login',{
+
+method:'POST',
+
+headers:{
+'Content-Type':'application/json'
+},
+
+body:JSON.stringify({
+
+email:'admin@tix.com',
+password:'123456'
+
+})
+
+});
+
+const data = await response.json();
+
+localStorage.setItem('token',data.token);
+
+}
+
+// BOOKING API SAMPLE
+
+async function createBooking(){
+
+const token = localStorage.getItem('token');
+
+await fetch('/api/bookings',{
+
+method:'POST',
+
+headers:{
+'Content-Type':'application/json',
+'Authorization':'Bearer '+token
+},
+
+body:JSON.stringify({
+
+pickup:'Imphal Airport',
+drop:'Loktak Lake',
+vehicle:'SUV'
+
+})
+
+});
+
+}
+
+</script>
 
 </body>
 </html>
