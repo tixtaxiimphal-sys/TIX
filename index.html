@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TIX - Taxi Imphal Xplore | Premium Cab Service</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* --- BRAND THEME COLORS --- */
+        :root {
+            --primary-color: #CCFF00; /* Lime/Neon Green from logo */
+            --dark-color: #1A1A1A;    /* Deep Black/Gray from logo */
+            --light-color: #FFFFFF;   /* Clean White */
+            --text-muted: #A0A0A0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--dark-color);
+            color: var(--light-color);
+        }
+
+        /* --- NAVIGATION --- */
+        header {
+            background-color: rgba(26, 26, 26, 0.95);
+            padding: 20px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(204, 255, 0, 0.1);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        /* Mock representation of the custom wheel logo */
+        .logo-circle {
+            width: 40px;
+            height: 40px;
+            background: var(--dark-color);
+            border: 4px solid var(--light-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 0 4px var(--dark-color), 0 0 0 6px var(--primary-color);
+        }
+
+        .logo-circle-inner {
+            width: 100%;
+            height: 100%;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--dark-color);
+            font-weight: 900;
+            font-size: 10px;
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .logo-text span {
+            color: var(--primary-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            color: var(--light-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-btn {
+            background-color: var(--primary-color);
+            color: var(--dark-color) !important;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-weight: 600 !important;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            min-height: 100vh;
+            padding: 150px 10% 80px 10%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+            background: linear-gradient(135deg, #121212 0%, #222222 100%);
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 48px;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero-content h1 span {
+            color: var(--primary-color);
+        }
+
+        .hero-content p {
+            color: var(--text-muted);
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        /* Booking Form Card */
+        .booking-card {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .booking-card h3 {
+            font-size: 22px;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            position: relative;
+        }
+
+        .form-group i {
+            position: absolute;
+            left: 15px;
+            top: 15px;
+            color: var(--primary-color);
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px 15px 12px 45px;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            color: #fff;
+            font-size: 14px;
+            outline: none;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            border-color: var(--primary-color);
+        }
+
+        .btn-submit {
+            width: 100%;
+            background: var(--primary-color);
+            color: var(--dark-color);
+            border: none;
+            padding: 14px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, background 0.3s;
+        }
+
+        .btn-submit:hover {
+            background: #b8e600;
+            transform: translateY(-2px);
+        }
+
+        /* --- SERVICES SECTION --- */
+        .services {
+            padding: 100px 10%;
+            background-color: #121212;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 36px;
+            margin-bottom: 50px;
+        }
+
+        .section-title span {
+            color: var(--primary-color);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .service-box {
+            background: #1A1A1A;
+            padding: 40px 30px;
+            border-radius: 15px;
+            transition: transform 0.3s, border-color 0.3s;
+            border: 1px solid transparent;
+        }
+
+        .service-box:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-color);
+        }
+
+        .service-box i {
+            font-size: 40px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .service-box h4 {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .service-box p {
+            color: var(--text-muted);
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* --- FLEET SECTION --- */
+        .fleet {
+            padding: 100px 10%;
+            text-align: center;
+        }
+
+        .fleet-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .fleet-card {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: left;
+        }
+
+        .fleet-img-mock {
+            height: 200px;
+            background: #252525;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 50px;
+        }
+
+        .fleet-info {
+            padding: 25px;
+        }
+
+        .fleet-info h4 {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .fleet-features {
+            display: flex;
+            gap: 15px;
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        /* --- CONTACT & FOOTER --- */
+        .contact-strip {
+            background-color: var(--primary-color);
+            color: var(--dark-color);
+            padding: 40px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .contact-strip h2 {
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .call-btn {
+            background: var(--dark-color);
+            color: var(--light-color);
+            padding: 15px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: opacity 0.3s;
+        }
+
+        .call-btn:hover {
+            opacity: 0.9;
+        }
+
+        footer {
+            background: #0D0D0D;
+            padding: 50px 10% 20px 10%;
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand {
+            max-width: 300px;
+        }
+
+        .footer-brand p {
+            margin-top: 15px;
+            line-height: 1.6;
+        }
+
+        .footer-links h5 {
+            color: #fff;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* --- RESPONSIVENESS --- */
+        @media (max-width: 968px) {
+            header { padding: 20px 5%; }
+            .hero { padding: 120px 5% 50px 5%; flex-direction: column; text-align: center; }
+            .booking-card { max-width: 100%; }
+            .hero-content h1 { font-size: 36px; }
+            .contact-strip { flex-direction: column; text-align: center; }
+            .booking-card h3 { text-align: left; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <div class="logo-circle">
+                <div class="logo-circle-inner">TIX</div>
+            </div>
+            <div class="logo-text">TIX<span>.</span></div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#fleet">Our Fleet</a></li>
+                <li><a href="tel:+918794451106" class="nav-btn"><i class="fa fa-phone"></i> Call Now</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Taxi Imphal Xplore <br><span>Your Premium Ride Partner</span></h1>
+            <p>Xplore Imphal and beyond with top-tier convenience, professional drivers, and clean, safe, and modern vehicles at your service 24/7.</p>
+            <div style="display: flex; gap: 20px; justify-content: flex-start; flex-wrap: wrap;">
+                <div class="feat-badge"><i class="fa fa-shield-alt" style="color: var(--primary-color);"></i> Safe & Secure</div>
+                <div class="feat-badge"><i class="fa fa-clock" style="color: var(--primary-color);"></i> Always On Time</div>
+                <div class="feat-badge"><i class="fa fa-tag" style="color: var(--primary-color);"></i> Transparent Pricing</div>
+            </div>
+        </div>
+
+        <div class="booking-card">
+            <h3>Book Your Ride</h3>
+            <form id="bookingForm" onsubmit="sendBooking(event)">
+                <div class="form-group">
+                    <i class="fa fa-user"></i>
+                    <input type="text" id="userName" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <i class="fa fa-map-marker-alt"></i>
+                    <input type="text" id="pickup" placeholder="Pickup Location (Imphal Airport, etc.)" required>
+                </div>
+                <div class="form-group">
+                    <i class="fa fa-map-signs"></i>
+                    <input type="text" id="dropoff" placeholder="Dropoff Location" required>
+                </div>
+                <div class="form-group">
+                    <i class="fa fa-car"></i>
+                    <select id="carType">
+                        <option value="Standard Sedan">Standard Sedan</option>
+                        <option value="Premium SUV">Premium SUV</option>
+                        <option value="Compact Hatchback">Compact Hatchback</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn-submit">Confirm via WhatsApp</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <h2 class="section-title">Our <span>Services</span></h2>
+        <div class="services-grid">
+            <div class="service-box">
+                <i class="fa fa-plane-departure"></i>
+                <h4>Airport Transfers</h4>
+                <p>Reliable pickup and drop-off services to and from Bir Tikendrajit International Airport, Imphal.</p>
+            </div>
+            <div class="service-box">
+                <i class="fa fa-map-marked-alt"></i>
+                <h4>Local & Outstation Xploration</h4>
+                <p>Custom tailored inter-city travels and local sightseeing tours across beautiful Manipur landscapes.</p>
+            </div>
+            <div class="service-box">
+                <i class="fa fa-briefcase"></i>
+                <h4>Corporate Travel</h4>
+                <p>Timely and dependable corporate travel solutions for executives, guests, and official events.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="fleet" id="fleet">
+        <h2 class="section-title">Explore Our <span>Fleet</span></h2>
+        <div class="fleet-grid">
+            <div class="fleet-card">
+                <div class="fleet-img-mock"><i class="fa fa-car-side"></i></div>
+                <div class="fleet-info">
+                    <h4>Comfort Hatchback</h4>
+                    <div class="fleet-features">
+                        <span><i class="fa fa-user-friends"></i> 4 Seats</span>
+                        <span><i class="fa fa-suitcase"></i> 2 Bags</span>
+                        <span><i class="fa fa-snowflake"></i> AC</span>
+                    </div>
+                </div>
+            </div>
+            <div class="fleet-card">
+                <div class="fleet-img-mock"><i class="fa fa-car"></i></div>
+                <div class="fleet-info">
+                    <h4>Executive Sedan</h4>
+                    <div class="fleet-features">
+                        <span><i class="fa fa-user-friends"></i> 4 Seats</span>
+                        <span><i class="fa fa-suitcase"></i> 3 Bags</span>
+                        <span><i class="fa fa-snowflake"></i> AC</span>
+                    </div>
+                </div>
+            </div>
+            <div class="fleet-card">
+                <div class="fleet-img-mock"><i class="fa fa-shuttle-van"></i></div>
+                <div class="fleet-info">
+                    <h4>Premium SUV</h4>
+                    <div class="fleet-features">
+                        <span><i class="fa fa-user-friends"></i> 6-7 Seats</span>
+                        <span><i class="fa fa-suitcase"></i> 4+ Bags</span>
+                        <span><i class="fa fa-snowflake"></i> AC</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="contact-strip">
+        <h2>Need a ride right now?</h2>
+        <a href="tel:+918794451106" class="call-btn">
+            <i class="fa fa-phone-alt"></i> Call +91 8794451106
+        </a>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo-container">
+                    <div class="logo-circle"><div class="logo-circle-inner">TIX</div></div>
+                    <div class="logo-text">TIX<span>.</span></div>
+                </div>
+                <p>Taxi Imphal Xplore provides top-tier transportation services designed to give you a smooth, stress-free travel experience across Manipur.</p>
+            </div>
+            <div class="footer-links">
+                <h5>Quick Links</h5>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#fleet">Our Fleet</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h5>Contact Info</h5>
+                <ul>
+                    <li style="color: #fff;"><i class="fa fa-phone" style="color: var(--primary-color); margin-right: 10px;"></i> +91 8794451106</li>
+                    <li><i class="fa fa-map-marker-alt" style="color: var(--primary-color); margin-right: 10px;"></i> Imphal, Manipur, India</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2026 TIX - Taxi Imphal Xplore. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script>
+        function sendBooking(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('userName').value;
+            const pickup = document.getElementById('pickup').value;
+            const dropoff = document.getElementById('dropoff').value;
+            const car = document.getElementById('carType').value;
+            
+            // Format WhatsApp Message 
+            const message = `Hello TIX! I would like to book a ride.%0A%0A*Name:* ${name}%0A*Pickup:* ${pickup}%0A*Dropoff:* ${dropoff}%0A*Vehicle Selected:* ${car}`;
+            
+            // Direct link to the official company contact
+            const whatsappUrl = `https://wa.me/918794451106?text=${message}`;
+            
+            window.open(whatsappUrl, '_blank');
+        }
+    </script>
+</body>
+</html>
